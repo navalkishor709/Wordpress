@@ -1,0 +1,54 @@
+function create_posttype() {
+
+	register_post_type('Blogs',  
+		array(
+		  'labels' => array(
+			'name' => __( 'Blogs' ),
+			'singular_name' => __( 'blog' ),
+			'add_new' => __( 'Add Blog'),
+			'add_new_item' => __( 'Add Blog'),
+			'new_item'  => __( 'New Blog'),
+			'edit_item' => __( 'Edit Blog'),
+			'view_item' => __( 'View Blog'),
+			'all_items' => __( 'All Blogs'),
+			'search_items' => __( 'Search Blogs'),
+			'not_found' => __( 'No blogs found'),
+			'not_found_in_trash' => __( 'No blogs found in Trash'),
+			'menu_name' => __( 'Blogs'),
+			'name_admin_bar' => __( 'Blogs')
+		  ),
+		  'public' => true,
+		  'publicly_queryable' => true,
+		  'exclude_from_search' => true,
+		  'show_ui' => true,
+		  'has_archive' => false,
+		  'menu_position' => 10,
+		   'menu_icon'   => 'dashicons-admin-comments',
+		  'rewrite' => array('slug' => 'blog'),
+		  'taxonomies'          => array('category' ),
+		  'supports' => array('title','editor','thumbnail','excerpt')
+		)
+	);		
+}
+add_action( 'init', 'create_posttype' );
+
+
+*********************OR  using CPT *********************
+
+register_post_type('servi-post',  
+	array(
+	  'labels' => array(
+		'name' => __( 'Services' ),
+		'singular_name' => __( 'Services' ),			
+	  ),
+	  'menu_icon'  => 'dashicons-heart',
+	  'public' => true,
+      'has_archive' => true,
+	  'show_in_rest' => true,
+	  'rewrite' => array('slug' => 'servi-post'),
+	  'supports' => array('title','editor','thumbnail','excerpt')
+	 
+	)
+);	
+
+
