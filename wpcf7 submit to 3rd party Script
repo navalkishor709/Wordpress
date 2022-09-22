@@ -1,0 +1,5 @@
+<script>
+document.addEventListener( 'wpcf7mailsent', function( event ) {
+location = 'http://www.navalkishor.xyz';
+}, false );
+</script>
