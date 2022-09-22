@@ -1,0 +1,6 @@
+add_filter( 'woocommerce_product_tabs', 'remove_product_tabs', 9999 );
+  
+function remove_product_tabs( $tabs ) {
+    unset( $tabs['additional_information'] ); 
+    return $tabs;
+}
