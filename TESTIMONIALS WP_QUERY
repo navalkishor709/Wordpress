@@ -1,0 +1,33 @@
+<?php $args = array( 
+      'post_type' => 'wpm-testimonial', 
+      'posts_per_page' => 10,
+      'order' => 'ASC'
+    );
+  $loop = new WP_Query( $args );?>
+  <div class="testimonial text-center">
+    <h5 class="text-uppercase mb-4"><?php the_field('testimonial_heading');?></h5>
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">				
+      <ul class="carousel-indicators">
+          <?php $s=1; while ( $loop->have_posts() ) : $loop->the_post(); ?>	
+        <li data-bs-target="#demo" data-bs-slide-to="<?php echo $s-1; ?>" class="<?php echo $s==1  ? 'active' : '' ;?>"></li>
+        <?php $s++; endwhile; rewind_posts();?> 					
+      </ul>
+      <div class="carousel-inner">
+        <?php $slide=1; while ( $loop->have_posts() ) : $loop->the_post(); ?>	
+        <div class="carousel-item <?php echo $slide==1  ? 'active' : '' ;?>">
+          <h5 class="fs-24 font-opensans font-weight-bold py-3"><?php the_content();?></h5>			
+          <h5 class="mt-4 mb-md-5"><?php the_title();?></h5>
+        </div>
+        <?php $slide++; endwhile; ?>
+      </div>
+
+      <!-- Left and right controls -->
+      <button type="button" class="carousel-control-prev" data-bs-target="#demo" data-bs-slide="prev">
+      <i class="fas fa-chevron-left fa-lg"></i>
+      </button>
+      <button type="button" class="carousel-control-next" data-bs-target="#demo" data-bs-slide="next">
+      <i class="fas fa-chevron-right fa-lg"></i>
+      </button>
+    </div>			
+  </div>
+  <?php wp_reset_query();  ?>	
