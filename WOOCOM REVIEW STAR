@@ -1,0 +1,7 @@
+<ul class="woocommerce">
+<li class="str-hm">
+<?php if ($average = $product->get_average_rating()) : ?>
+<?php echo '<div class="star-rating" title="'.sprintf(__( 'Rated %s out of 5', 'woocommerce' ), $average).'"><span style="width:'.( ( $average / 5 ) * 100 ) . '%"><strong itemprop="ratingValue" class="rating">'.$average.'</strong> '.__( 'out of 5', 'woocommerce' ).'</span></div>'; ?>
+<?php endif; ?>
+</li>
+</ul>
