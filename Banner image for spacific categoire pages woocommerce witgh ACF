@@ -1,0 +1,13 @@
+	<?php if ( is_product_category() ) {
+	// vars
+	$queried_object = get_queried_object(); 
+	$taxonomy = $queried_object->taxonomy;
+	$term_id = $queried_object->term_id;  
+	$foto = get_field( 'cat_banner_image', $queried_object );
+	$foto = get_field( 'cat_banner_image', $taxonomy . '_' . $term_id );
+	if(!empty($foto)) {
+		echo '<div class="w-100 cat-banner"><img src="'. $foto.'"  class="img-fluid" alt="banner" ></div>';
+	} else {
+		echo '<div class="w-100 cat-banner"><img src="'.home_url().'/wp-content/uploads/2021/07/banner1-1.jpg" class="img-fluid" alt="banner" ></div>';
+	}
+  } ?>
