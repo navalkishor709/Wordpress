@@ -1,0 +1,20 @@
+
+// SIDE BAR WOOCOMM FUNCTION.PHP //	
+
+	register_sidebar( array(
+		'name' => __( 'Woo Sidebar', 'wpb' ),    // use this name for call the side bar. 
+		'id' => 'woo-sidebar',
+		'description' => __( 'The main sidebar appears on the right on each page except the front page template', 'wpb' ),
+		'before_widget' => '<aside id="%1$s" class="mt-3 widget %2$s">',
+		'after_widget' => '</aside>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+
+
+
+// SIDE BAR display /SINGLE-PRODUCT.PHP //
+
+<div class="">
+		<?php dynamic_sidebar('woo-sidebar')?>
+</div>
