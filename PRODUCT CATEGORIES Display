@@ -1,0 +1,26 @@
+*********************   For old version *****************
+
+
+<?php $wcatTerms = get_terms('product_cat', array('hide_empty' => 0, 'number' => 4, 'parent' => 39,)); 
+	 foreach($wcatTerms as $wcatTerm) : 
+	$wthumbnail_id = get_woocommerce_term_meta( $wcatTerm->term_id, 'thumbnail_id', true );
+	$wimage = wp_get_attachment_url( $wthumbnail_id );   ?>
+
+
+********************** For new version ******************
+
+	<?php $wcatTerms = get_terms('product_cat', array('hide_empty' => 0, 'number' => 12, 'parent' => 0)); 
+	foreach($wcatTerms as $wcatTerm) : 
+	$wthumbnail_id = get_term_meta( $wcatTerm->term_id, 'thumbnail_id', true );
+	$wimage = wp_get_attachment_url( $wthumbnail_id );   ?>
+
+
+	<?php if($wimage!=""):?>
+	  <img src="<?php echo $wimage ?>" alt="product category" class="w-100">   //image link//
+	 <?php endif;?>
+	  
+<h2><?php echo $wcatTerm->name; ?></h2>  //category name//
+
+<a href="<?php echo get_term_link( $wcatTerm->slug, $wcatTerm->taxonomy ); ?>">  //category link//
+
+<?php endforeach; ?> 
