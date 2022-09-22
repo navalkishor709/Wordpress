@@ -33,7 +33,7 @@ function create_posttype() {
 add_action( 'init', 'create_posttype' );
 
 
-*********************OR  using CPT *********************
+********************* OR  using CPT *********************
 
 register_post_type('servi-post',  
 	array(
@@ -52,3 +52,25 @@ register_post_type('servi-post',
 );	
 
 
+// for texonomy category //
+
+	$query = new WP_Query( array(
+    'post_type' => 'servi-post',
+    'tax_query' => array(
+        array (
+            'taxonomy' => 'category',
+            'field' => 'slug',
+            'terms' => 'care-services',
+        )
+    ),
+) );
+  
+               OR
+
+	$query = new WP_Query(array(
+		'post_type' => 'treat-post', 
+		'posts_per_page' => -1,
+		'category_name' => 'spa-breaks',
+		'order' => 'ASC'
+		)
+	);
