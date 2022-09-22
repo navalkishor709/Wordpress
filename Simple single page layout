@@ -1,0 +1,42 @@
+<div class="inner-bnr">
+<?php if(!empty(get_the_post_thumbnail_url())) {?>
+	<img src="<?php echo the_post_thumbnail_url(); ?>" class="img-fluid" alt="img">
+<?php }else{?>
+	<img src="<?php echo get_site_url('');?>/image path here.." class="img-fluid" alt="img" >
+<?php }?>
+</div>
+
+<section id="MainContent" class="py-5">
+<div class="container">
+	<ul class="breadcrumb">
+		<li><a href="<?php echo home_url('/')?>">Home</a></li>				
+		<li class="active"><?php the_title(); ?></li>
+	</ul> 
+	<h3><?php the_title(); ?></h3>
+	<div class="clearfix"><?php echo the_content();?></div>
+</div>
+</section>
+
+
+
+
+// Breadceumb CSS - insert into style.css  //
+
+.breadcrumb {
+background-color: transparent !important;
+padding: 0px !important;
+margin-top: 15px;
+font-size: 15px;
+padding-bottom: 15px !important;
+border-bottom: dashed 1px #c2c2c2;
+}
+.breadcrumb a{ 
+color:#840000 !important;
+}
+.breadcrumb li.active:before{
+content: "\00BB";
+font-family: "Font Awesome 5 Free";
+margin-right: 5px;
+margin-left: 5px;
+font-weight: 900;
+}
