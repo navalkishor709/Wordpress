@@ -1,0 +1,10 @@
+<form action="<?php echo esc_url( home_url('/') ); ?>" method="get" >
+<div class="input-group rounded-lg overflow-hidden">
+<input type="hidden" name="post_type" value="product">
+<input type="text" class="form-control rounded-0 border-0 bg-transparent fs-14" placeholder="Search" name="s" id="p">
+<div class="input-group-append">
+<button class="btn">
+<span class="fas fa-search fs-16"></span> </button>
+</div>
+</div>
+</form>
