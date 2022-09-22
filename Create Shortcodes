@@ -26,8 +26,6 @@ add_shortcode('my_services_post', function($args){
 });
 
 
-
-
 Use this shortcode - [my_services_post]
 
 
